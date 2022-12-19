@@ -7,7 +7,7 @@ node(){
         sh "${mavenHome}/bin/mvn clean package"
     }
     stage('deployToContainer'){
-        sh "cp target/maven-web-application.war /opt/tomcat8/webapps/"
+        sh "cp -rf target/maven-web-application.war /opt/tomcat8/webapps/"
     }
     stage("sendEmailNotification"){
         emailext body: '''Hi,
