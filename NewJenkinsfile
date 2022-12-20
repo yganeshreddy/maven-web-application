@@ -6,9 +6,9 @@ node(){
     stage('build'){
         sh "${mavenHome}/bin/mvn clean package"
     }
-    stage('deployToContainer'){
+    /*stage('deployToContainer'){
         sh "cp -rf target/maven-web-application.war /opt/tomcat8/webapps/"
-    }
+    }*/
     stage("sendEmailNotification"){
         emailext body: '''Hi,
 Build has been completed. Please check and validate.
